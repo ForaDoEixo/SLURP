@@ -1,23 +1,23 @@
 import { createActions } from 'redux-actions';
 
+const CRUD = {
+    CREATE: undefined,
+    READ: undefined,
+    UPDATE: undefined,
+    DELETE: undefined
+}
+
 const actionCreators = createActions({
     APP: {
         SETTINGS: undefined,
-        HASHTAGS: {
-            ADD: undefined,
-            REMOVE: undefined,
-            TOGGLE: undefined,
-        },
-        USERS: {
-            ADD: undefined,
-            REMOVE: undefined,
-            TOGGLE: undefined,
-        }
+        HASHTAGS: CRUD,
+        USERS: CRUD
     },
     TWITTER: {
         CONNECT: undefined,
         DISCONNECT: undefined,
         ERROR: undefined,
+        APPEND: undefined
     }
 })
 

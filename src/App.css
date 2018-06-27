@@ -9,6 +9,10 @@
     justify-content: space-between;
 }
 
+.Main-nav h1 {
+    color: white
+}
+
 .Main-nav nav {
     flex: 1;
     display: flex;
@@ -16,6 +20,7 @@
 
 .Main-nav a {
     padding: 1vw;
+    color: white;
 }
 
 .App-logo {
@@ -26,6 +31,25 @@
 .Settings {
     background-color: #444;
     color: white;
+}
+
+.Settings h1 {
+    color: white;
+    padding: 2vw;
+}
+
+.Settings li {
+    display: flex;
+    padding: 0 1vw;
+}
+
+.Settings li label {
+    padding: 0 1vw;
+}
+
+
+.Settings button {
+    width: 100%;
 }
 
 .Sections {

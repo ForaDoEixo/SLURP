@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const TagsSelector = ({name, collection, actions, marker=""}) => {
-    let input;
+import { shell } from 'electron';
 
-    console.error('collection', collection)
+const openLocal = (url) => (e) => {
+    e.preventDefault()
+    shell.openExternal(url)
+}
+
+const TagsSelector = ({name, baseURL, defaultField, collection, actions, marker=""}) => {
+    let input;
 
     return (
         <section>
@@ -14,27 +19,31 @@ const TagsSelector = ({name, collection, actions, marker=""}) => {
                     if (!input.value.trim()) {
                         return
                     }
-                    actions.add(input.value)
+                    actions.create({_id: input.value, [defaultField]: input.value})
                     input.value = ''
             }}>
                 <input ref={node => input = node} />
                 <button type='submit'>add</button>
             </form>
             <ul className="List">
-                {Object.keys(collection).map((item, key) => (
-                    <li key={`${item}`} className="List-item">
-                        <span>{marker}{item}</span>
-                        <button onClick={() => actions.remove(item)}>remove</button>
-                    </li>
-                ))}
+                {collection.map((item) => {
+                     const key = item[defaultField] || item._id
+                     return (
+                         <li key={`${key}`} className="List-item">
+                             <a onClick={openLocal(`${baseURL}${key}`)}>
+                                 {marker}{key}
+                             </a>
+                             <button onClick={() => actions.delete(item)}>remove</button>
+                         </li>
+                     )
+                })}
             </ul>
-        </section>
-    )
+        </section>)
 }
 
 TagsSelector.propTypes = {
     name: PropTypes.string.isRequired,
-    collection: PropTypes.object.isRequired,
+    collection: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired,
 }
 

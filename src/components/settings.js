@@ -1,9 +1,11 @@
 import React from 'react';
 
+import style from './settings.css'
+
 const settingDescriptors = {
     consumer_key: 'Consumer Key',
     consumer_secret: 'Consumer Secret',
-    access_token: 'Access Token',
+    access_token_key: 'Access Token',
     access_token_secret: 'Access Token Secret'
 }
 
@@ -48,7 +50,7 @@ class Settings extends React.Component {
                     <ul>
                         {
                             Object.entries(settingDescriptors).map(([key, value]) => (
-                                <li key={key}>
+                                <li key={key} className={style.entry}>
                                     <label htmlFor={key}>{value}</label>
                                     <input name={key} ref={node => this.inputs[key] = node}/>
                                 </li>
