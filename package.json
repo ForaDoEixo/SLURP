@@ -7,16 +7,13 @@
   "proxy": "http://localhost:3001",
   "author": "Hackers NINJA <frentehacker@gmail.com>",
   "build": {
+    "extends": null,
     "appId": "org.redelivre.slurp",
     "productName": "SLURP",
-    "copyright": "Copyright © 2018-present Rede Livre",
-    "files": [
-      "**/*",
-      "build/index.js",
-      "build/index.css",
-      "build/themes.js",
-      "build/themes.css"
-    ],
+    "copyright": "Copyright © 2018-present NINJA Hackers",
+    "directories": {
+      "buildResources": "static"
+    },
     "linux": {
       "target": "deb"
     },
