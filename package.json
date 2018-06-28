@@ -66,10 +66,12 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "electron": "electron ."
+    "electron": "electron .",
+    "release": "npm run build && electron-builder --x64 --ia32"
   },
   "devDependencies": {
-    "electron": "^2.0.3"
+    "electron": "^2.0.3",
+    "electron-builder": "^20.17.0"
   },
   "jest": {
     "collectCoverageFrom": [
