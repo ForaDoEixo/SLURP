@@ -30,7 +30,7 @@ class Settings extends React.Component {
     }
 
     render () {
-        const {action, settings} = this.props
+        const { action } = this.props
 
         const updateSettings = () => {
             const ret = Object.keys(this.inputs).reduce((acc, key) => Object.assign({}, acc, {

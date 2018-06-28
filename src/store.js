@@ -16,4 +16,4 @@ load(store);
 
 const unsubscribe = store.subscribe(handleChange(store))
 
-export { store as default }
+export { store as default, unsubscribe }
